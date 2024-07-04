@@ -4,34 +4,34 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from './page.module.css';
 
-export default function News() {
-  const [news, setNews] = useState([]);
+export default function BlogList() {
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    const fetchNews = async () => {
-      const res = await fetch('/api/news');
-      const newsData = await res.json();
-      setNews(newsData);
+    const fetchBlogs = async () => {
+      const res = await fetch('/api/blogs');
+      const blogData = await res.json();
+      setBlogs(blogData);
     };
 
-    fetchNews();
+    fetchBlogs();
   }, []);
 
   return (
     <div>
       <main>
-        {news.map((article) => (
-          <article key={article.id} className={styles.article}>
+        {blogs.map((blog) => (
+          <article key={blog._id} className={styles.article}>
             <Image
-              src={article.image}
-              alt={`News Image ${article.id}`}
+              src={blog.image}
+              alt={`Blog Image ${blog._id}`}
               width={100}
               height={100}
               className={styles.articleImage}
             />
             <div className={styles.articleContent}>
-              <h2>{article.title}</h2>
-              <p>{article.content}</p>
+              <h2>{blog.title}</h2>
+              <div dangerouslySetInnerHTML={{ __html: blog.content }} />
               <p>
                 <a href="#">Read more...</a>
               </p>
