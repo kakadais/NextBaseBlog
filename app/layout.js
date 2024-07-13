@@ -1,6 +1,5 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
-import './quill.css'; // Import our custom Quill styles
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -14,12 +13,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/react-quill@1.3.3/dist/quill.snow.css"
-        />
-      </head>
       <body className={inter.className}>
         <Header />
         {children}
