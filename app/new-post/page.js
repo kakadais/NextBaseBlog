@@ -1,37 +1,9 @@
+// new-post/page.js
+
 'use client';
 
 import React, { useState } from 'react';
-import dynamic from 'next/dynamic';
 import styles from './page.module.css';
-import '../quill.css'; // Import the global Quill styles
-
-const QuillNoSSR = dynamic(() => import('react-quill'), {
-  ssr: false,
-  loading: () => <p>Loading editor...</p>,
-});
-
-const modules = {
-  toolbar: [
-    [{ header: [1, 2, false] }],
-    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-    [{ list: 'ordered' }, { list: 'bullet' }],
-    ['link', 'image'],
-    ['clean'],
-  ],
-};
-
-const formats = [
-  'header',
-  'bold',
-  'italic',
-  'underline',
-  'strike',
-  'blockquote',
-  'list',
-  'bullet',
-  'link',
-  'image',
-];
 
 export default function NewPost() {
   const [title, setTitle] = useState('');
@@ -83,12 +55,13 @@ export default function NewPost() {
         </div>
         <div className={styles.formGroup}>
           <label htmlFor="content">Content:</label>
-          <QuillNoSSR
+          <textarea
+            id="content"
             value={content}
-            onChange={setContent}
-            modules={modules}
-            formats={formats}
-            theme="snow"
+            onChange={(e) => setContent(e.target.value)}
+            className={styles.textarea}
+            rows={10} // Adjust the number of rows as needed
+            required
           />
         </div>
         <button type="submit" className={styles.submitButton}>

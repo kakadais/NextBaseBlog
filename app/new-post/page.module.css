@@ -1,3 +1,5 @@
+/* new-post/page.module.css */
+
 .container {
   max-width: 800px;
   margin: 0 auto;
@@ -13,10 +15,15 @@
   margin-bottom: 5px;
 }
 
-.formGroup input[type='text'] {
+.formGroup input[type='text'],
+.formGroup textarea {
   width: 100%;
   padding: 8px;
   font-size: 16px;
+}
+
+.textarea {
+  height: 200px; /* Adjust the height as needed */
 }
 
 .submitButton {
