@@ -19,30 +19,14 @@ export default function BlogList() {
     fetchPosts();
   }, []);
 
-  const formatContent = (content) => {
-    return content.replace(/\n/g, '<br>'); // Replace newlines with <br> tags for line breaks
-  };
-
   return (
     <div>
       <main>
         {posts.map((post) => (
           <article key={post._id} className={styles.article}>
-            <div className={styles.articleImageContainer}>
-              <Image
-                src={post.image}
-                alt={`Post Image ${post._id}`}
-                layout="fill" // Use the fill layout to ensure the image covers the container
-                className={styles.articleImage}
-              />
-            </div>
             <div className={styles.articleContent}>
               <h2>{post.title}</h2>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: formatContent(post.content),
-                }}
-              />
+              <div>{post.content}</div>
               <p>
                 <a href="#">Read more...</a>
               </p>
