@@ -3,11 +3,13 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './page.module.css';
 
 export default function NewPost() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,8 +30,7 @@ export default function NewPost() {
 
       if (response.ok) {
         alert('Post created successfully!');
-        setTitle('');
-        setContent('');
+        router.push('/'); // Redirect to home page after successful submission
       } else {
         alert('Failed to create post');
       }
