@@ -1,9 +1,7 @@
-// app/page.js
-
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import Link from 'next/link';
 import styles from './page.module.css';
 
 export default function BlogList() {
@@ -27,9 +25,7 @@ export default function BlogList() {
             <div className={styles.articleContent}>
               <h2>{post.title}</h2>
               <div>{post.content}</div>
-              <p>
-                <a href="#">Read more...</a>
-              </p>
+              <Link href={`/detail/${post._id}`}>Read more...</Link>
             </div>
           </article>
         ))}
