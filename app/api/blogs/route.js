@@ -11,7 +11,7 @@ export async function GET(request) {
     // Insert dummy data if the collection is empty
     const dummyData = Array.from({ length: 10 }, (_, index) => ({
       title: `Blog Post ${index + 1}`,
-      content: `Content for blog post ${index + 1}. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
+      content: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
       image: 'https://picsum.photos/100',
       createdAt: new Date(),
     }));

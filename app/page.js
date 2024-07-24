@@ -24,7 +24,6 @@ export default function BlogList() {
           <article key={post._id} className={styles.article}>
             <div className={styles.articleContent}>
               <h2>{post.title}</h2>
-              <div>{post.content}</div>
               <Link href={`/detail/${post._id}`}>Read more...</Link>
             </div>
           </article>

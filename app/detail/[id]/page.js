@@ -29,7 +29,6 @@ export default function BlogDetail({ params }) {
   return (
     <div className={styles.container}>
       <h1>{post.title}</h1>
-      <Image src={post.image} alt={post.title} width={600} height={400} />
       <div className={styles.content}>
         <p>{post.content}</p>
       </div>
