@@ -23,8 +23,7 @@ export default function BlogList() {
         {posts.map((post) => (
           <article key={post._id} className={styles.article}>
             <div className={styles.articleContent}>
-              <h2>{post.title}</h2>
-              <Link href={`/detail/${post._id}`}>Read more...</Link>
+              <Link href={`/detail/${post._id}`}>{post.title}</Link>
             </div>
           </article>
         ))}
