@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import Link from 'next/link';
 import styles from './page.module.css';
 
 async function fetchPost(id) {
@@ -27,11 +27,12 @@ export default function BlogDetail({ params }) {
   }
 
   return (
-    <div className={styles.container}>
+    <div>
       <h1>{post.title}</h1>
-      <div className={styles.content}>
+      <div>
         <p>{post.content}</p>
       </div>
+      <Link href={`/post/${id}`}>Edit</Link>
     </div>
   );
 }
