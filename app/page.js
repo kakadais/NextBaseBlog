@@ -9,7 +9,7 @@ export default function BlogList() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch('/api/blogs');
+      const res = await fetch('/api/post');
       const postData = await res.json();
       setPosts(postData);
     };

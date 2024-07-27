@@ -5,7 +5,7 @@ import Image from 'next/image';
 import styles from './page.module.css';
 
 async function fetchPost(id) {
-  const res = await fetch(`/api/blogs/${id}`);
+  const res = await fetch(`/api/post/${id}`);
   if (!res.ok) {
     throw new Error('Failed to fetch post');
   }

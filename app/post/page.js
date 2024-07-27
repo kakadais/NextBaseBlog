@@ -1,4 +1,4 @@
-// new-post/page.js
+// post/page.js
 
 'use client';
 
@@ -20,7 +20,7 @@ export default function NewPost() {
     };
 
     try {
-      const response = await fetch('/api/blogs', {
+      const response = await fetch('/api/post', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
