@@ -34,7 +34,7 @@ export default function Page() {
         {posts.map((post) => (
           <article key={post._id} className={styles.article}>
             <div className={styles.articleContent}>
-              <Link href={`/post/${post._id}`}>{post.title}</Link>
+              <Link href={`/detail/${post._id}`}>{post.title}</Link>
             </div>
           </article>
         ))}
