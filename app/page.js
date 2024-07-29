@@ -1,21 +1,18 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from './page.module.css';
 
-export default function BlogList() {
-  const [posts, setPosts] = useState([]);
+async function fetchPosts() {
+  const res = await fetch('http://localhost:3000/api/post', {
+    cache: 'no-store', // Ensures the data is fetched on every request
+  });
+  if (!res.ok) {
+    throw new Error('Failed to fetch posts');
+  }
+  return res.json();
+}
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await fetch('/api/post');
-      const postData = await res.json();
-      setPosts(postData);
-    };
-
-    fetchPosts();
-  }, []);
+export default async function Page() {
+  const posts = await fetchPosts();
 
   return (
     <div>
