@@ -25,7 +25,7 @@ export default async function BlogDetail({ params }) {
       <div>
         <p>{post.content}</p>
       </div>
-      <Link href={`/post/${id}/edit`}>Edit</Link>
+      <Link href={`/post/${id}`}>Edit</Link>
     </div>
   );
 }

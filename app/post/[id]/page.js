@@ -47,7 +47,7 @@ export default function EditPost() {
 
       if (response.ok) {
         alert('Post updated successfully!');
-        router.push('/'); // Redirect to home page after successful update
+        router.replace('/'); // Use replace instead of push
       } else {
         alert('Failed to update post');
       }

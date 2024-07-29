@@ -1,5 +1,9 @@
+'use client';
+
 import Link from 'next/link';
 import styles from './page.module.css';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 async function fetchPosts() {
   const res = await fetch('http://localhost:3000/api/post', {
@@ -11,8 +15,18 @@ async function fetchPosts() {
   return res.json();
 }
 
-export default async function Page() {
-  const posts = await fetchPosts();
+export default function Page() {
+  const [posts, setPosts] = useState([]);
+  const pathname = usePathname();
+
+  const loadPosts = async () => {
+    const posts = await fetchPosts();
+    setPosts(posts);
+  };
+
+  useEffect(() => {
+    loadPosts();
+  }, [pathname]);
 
   return (
     <div>
@@ -20,7 +34,7 @@ export default async function Page() {
         {posts.map((post) => (
           <article key={post._id} className={styles.article}>
             <div className={styles.articleContent}>
-              <Link href={`/detail/${post._id}`}>{post.title}</Link>
+              <Link href={`/post/${post._id}`}>{post.title}</Link>
             </div>
           </article>
         ))}
