@@ -2,12 +2,12 @@
 
 import Link from 'next/link';
 import styles from './page.module.css';
-import { usePathname } from 'next/navigation';
+import { usePathname } from 'next/naviation'; 
 import { useEffect, useState } from 'react';
 
-async function fetchPosts() {
+async function fetchPsts() { 
   const res = await fetch('http://localhost:3000/api/post', {
-    cache: 'no-store', // Ensures the data is fetched on every request
+    cache: 'no-store',
   });
   if (!res.ok) {
     throw new Error('Failed to fetch posts');
@@ -20,7 +20,7 @@ export default function Page() {
   const pathname = usePathname();
 
   const loadPosts = async () => {
-    const posts = await fetchPosts();
+    const posts = await fetchPsts(); 
     setPosts(posts);
   };
 
@@ -32,7 +32,7 @@ export default function Page() {
     <div>
       <main>
         {posts.map((post) => (
-          <article key={post._id} className={styles.article}>
+          <article key={post._id} className={styles.atricle}> 
             <div className={styles.articleContent}>
               <Link href={`/detail/${post._id}`}>{post.title}</Link>
             </div>
